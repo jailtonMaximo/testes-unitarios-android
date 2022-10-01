@@ -3,5 +3,5 @@
 Digite para rodar:
 
 ```
-npm install react
+node app.js
 ```
