@@ -1,8 +1,2 @@
-<h1>Testes unitarios com Android</h1>
-> Stratus do projeto: Em desenvolvimento.
-Digite para rodar:
-
-```
-node app.js
-```
-=)
+# Testes unitarios Android
+## Esse projeto contem meus estudos sobre testes unitários em Android
