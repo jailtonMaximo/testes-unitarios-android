@@ -3,6 +3,8 @@ package br.com.alura.leilao.model;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class Leilao implements Serializable {
@@ -18,15 +20,11 @@ public class Leilao implements Serializable {
     }
 
     public void propoe(Lance lance){
+        lances.add(lance);
+        Collections.sort(lances);
         Double valorLance = lance.getValor();
-
-        if (maiorLance.isInfinite() || (valorLance > maiorLance)) {
-            maiorLance = valorLance;
-        }
-        if(menorLance.isInfinite() || (valorLance < menorLance)) {
-            menorLance = valorLance;
-        }
-
+        calculaMaiorLance(valorLance);
+        calculaMenorLance(valorLance);
     }
 
     private void calculaMaiorLance(Double valorLance) {
@@ -68,5 +66,14 @@ public class Leilao implements Serializable {
         }
 
         return retorno;
+    }
+
+    public List<Lance> getTresMaioresLances() {
+        int sizeLance = lances.size();
+
+        if(sizeLance > 3){
+            sizeLance = 3;
+        }
+        return lances.subList(0, sizeLance);
     }
 }
